@@ -4,55 +4,63 @@
 </head>
 <body>
     <h1>Please awnser all of the following questions to obtain an answer</h1>
-    <label for="medical">Do you have any medical conditions that could worsened if you have a cat?</label>
+    <label for="medical">Do you have any medical conditions that could worsen if you have a cat?</label>
     <select id="medical" name="medical">
+        <option value=""></option>
         <option value="Yes">Yes</option>
         <option value="No">No</option>
     </select>
     <br>
     <label for="temp">Is your average house temperature approriate for a cat (between 10 and 38 degrees celcius)?</label>
     <select id="temp" name="temp">
+        <option value=""></option>
         <option value="Yes">Yes</option>
         <option value="No">No</option>
     </select>
     <br>
     <label for="space">Do you have at least 20 free square feet as of now?</label>
     <select id="space" name="space">
+        <option value=""></option>
         <option value="Yes">Yes</option>
         <option value="No">No</option>
     </select>
     <br>
     <label for="money">Are you ready to spend at least £360 per year on your cat?</label>
     <select id="money" name="money">
+        <option value=""></option>
         <option value="Yes">Yes</option>
         <option value="No">No</option>
     </select>
     <br>
     <label for="danger">Are there any potential dangers in your house (i.e. hazarous plants)?</label>
     <select id="danger" name="danger">
+        <option value=""></option>
         <option value="Yes">Yes</option>
         <option value="No">No</option>
     </select>
     <br>
     <label for="time">Will your cat ever be left alone for more then 12 hours at a time?</label>
     <select id="time" name="time">
+        <option value=""></option>
         <option value="Yes">Yes</option>
         <option value="No">No</option>
     </select>
     <br>
     <label for="pets">Do you have any other pets that your cat could eat (i.e. ferrets, turtles, birds, guinea pigs, fish, rodents, hamsters or sugar gliders)</label>
     <select id="pets" name="pets">
+        <option value=""></option>
         <option value="Yes">Yes</option>
         <option value="No">No</option>
     </select>
     <br>
     <label for="commu">Are there any cat sitters in you neighbourhood should you need one?</label>
     <select id="commu" name="commu">
+        <option value=""></option>
         <option value="Yes">Yes</option>
         <option value="No">No</option>
     </select>
     <br>
-    <button onclick="check()">See your results</button>
+    <button onclick="allanswered()">See your results</button>
     <br>
     <p id="print"></p>
     <script>
@@ -91,6 +99,14 @@
             } else {
                 document.getElementById("print").innerHTML=
                     "You are ready to own a cat"
+            }
+        }
+        function allanswered(){
+            if(document.getElementById("medical").value == "" || document.getElementById("temp").value == "" || document.getElementById("space").value == "" || document.getElementById("money").value == "" || document.getElementById("danger").value == "" || document.getElementById("time").value == "" || document.getElementById("pets").value == "" || document.getElementById("commu").value == ""){
+                document.getElementById("print").innerHTML=
+                    "Please answer all questions"
+            } else {
+                check()
             }
         }
     </script>
